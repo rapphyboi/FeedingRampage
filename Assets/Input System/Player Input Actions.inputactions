@@ -1,0 +1,34 @@
+{
+    "name": "Player Input Actions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "07c9cca7-6a21-4418-a469-f11d02a82597",
+            "actions": [
+                {
+                    "name": "Use Skill",
+                    "type": "Button",
+                    "id": "28c8517c-3264-4d4f-877d-0c34f9f9fc46",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7bf9c907-363c-4675-bac0-ba50896185e1",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use Skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
