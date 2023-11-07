@@ -1,0 +1,41 @@
+[33mcommit a9a348616d7702c5509f9f8fb9f3d352e8474ca5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Rapphyboi <deathldeathdead@gmail.com>
+Date:   Tue Nov 7 00:31:26 2023 +0800
+
+    First Commit
+
+.gitignore
+.vsconfig
+Assets/Input System.meta
+Assets/Input System/Player Input Actions.inputactions
+Assets/Input System/Player Input Actions.inputactions.meta
+Assets/Player.cs
+Assets/Player.cs.meta
+Assets/Scenes.meta
+Assets/Scenes/Game.unity
+Assets/Scenes/Game.unity.meta
+Packages/manifest.json
+Packages/packages-lock.json
+ProjectSettings/AudioManager.asset
+ProjectSettings/ClusterInputManager.asset
+ProjectSettings/DynamicsManager.asset
+ProjectSettings/EditorBuildSettings.asset
+ProjectSettings/EditorSettings.asset
+ProjectSettings/GraphicsSettings.asset
+ProjectSettings/InputManager.asset
+ProjectSettings/MemorySettings.asset
+ProjectSettings/NavMeshAreas.asset
+ProjectSettings/NetworkManager.asset
+ProjectSettings/PackageManagerSettings.asset
+ProjectSettings/Physics2DSettings.asset
+ProjectSettings/PresetManager.asset
+ProjectSettings/ProjectSettings.asset
+ProjectSettings/ProjectVersion.txt
+ProjectSettings/QualitySettings.asset
+ProjectSettings/SceneTemplateSettings.json
+ProjectSettings/TagManager.asset
+ProjectSettings/TimeManager.asset
+ProjectSettings/UnityConnectSettings.asset
+ProjectSettings/VFXManager.asset
+ProjectSettings/VersionControlSettings.asset
+ProjectSettings/XRSettings.asset
