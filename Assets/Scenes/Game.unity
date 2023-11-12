@@ -211,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5626713, y: 0.057048, z: -10}
+  m_LocalPosition: {x: 1.4196893, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -398,7 +398,9 @@ MonoBehaviour:
   scaleIndex: 2
   rb: {fileID: 704873761}
   moveSpeed: 10
+  rotateSpeed: 10
   animator: {fileID: 704873762}
+  childCollider: {fileID: 2127090831}
 --- !u!4 &704873758
 Transform:
   m_ObjectHideFlags: 0
@@ -408,8 +410,8 @@ Transform:
   m_GameObject: {fileID: 704873756}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11454, y: 0, z: 0}
-  m_LocalScale: {x: 11.4096, y: 11.4096, z: 11.4096}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 9.7239, y: 9.7239, z: 9.7239}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2127090830}
@@ -456,7 +458,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 07c6489291ee7814385fea41c86d06b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54c4c50234b76e84d94be3d90718b034, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -547,7 +549,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010767445, y: 0.001582019}
+  m_Offset: {x: 0, y: 0.001582019}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -667,7 +669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1247378527
 Rigidbody2D:
   serializedVersion: 4
@@ -773,7 +775,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &1247378531
@@ -886,7 +888,7 @@ Transform:
   m_GameObject: {fileID: 1364634516}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5626713, y: 0.057048, z: -10}
+  m_LocalPosition: {x: 1.4196893, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -904,7 +906,7 @@ GameObject:
   - component: {fileID: 2127090830}
   - component: {fileID: 2127090831}
   m_Layer: 0
-  m_Name: Head
+  m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -919,7 +921,7 @@ Transform:
   m_GameObject: {fileID: 2127090829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.147, y: 0.005, z: 0}
+  m_LocalPosition: {x: 0.146, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -957,7 +959,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0051963385, y: -0.0057502985}
+  m_Offset: {x: -0.015, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}

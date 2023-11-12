@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
@@ -10,7 +11,12 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float rotateSpeed = 1f;
     [SerializeField] private Animator animator;
+    [SerializeField] private BoxCollider2D childCollider;
+
+    private bool facingRight = true;
+    private Vector2 inputVector;
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
 
@@ -27,7 +33,7 @@ public class Player : MonoBehaviour
     {
         if (obj.canceled)
         {
-            animator.SetBool("IsSwimming", false);
+            //animator.SetBool("IsSwimming", false);
         }
     }
 
@@ -35,16 +41,36 @@ public class Player : MonoBehaviour
     {
         if (obj.performed)
         {
-            animator.SetBool("IsSwimming", true);
+
         }
     }
 
+    private void Update()
+    {
+        inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
+        animator.SetFloat("Speed", inputVector.sqrMagnitude);
+
+        if(inputVector.x < 0 && facingRight)
+        {
+            Flip();
+        }
+        if (inputVector.x > 0 && !facingRight)
+        {
+            Flip();
+        }
+
+    }
+
+
     private void FixedUpdate()
     {
-        Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
-        Debug.Log(inputVector);
         rb.velocity = inputVector * moveSpeed;
-        
+        /*animator.SetFloat("Horizontal", inputVector.x);
+        animator.SetFloat("Vertical", inputVector.y);
+        animator.SetFloat("Speed", inputVector.sqrMagnitude);
+        rb.velocity = inputVector * moveSpeed;
+        Debug.Log(animator.GetFloat("Speed"));*/
+
     }
 
 
@@ -57,14 +83,21 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(Vector3.up * 180);
+    }
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Food>())
         {
+            Debug.Log("COLLIDED!");
             Vector3 foodSize = collision.transform.localScale;
             transform.localScale += foodSize * scaleIndex;
         }
-    }
+    }*/
 
     /*public void UseSkill(InputAction.CallbackContext context)
     {
