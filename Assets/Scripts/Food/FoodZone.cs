@@ -8,19 +8,19 @@ public class FoodZone : MonoBehaviour
     [SerializeField] private GameObjectPool foodPool;
     [SerializeField] private int foodCount = 5;
     [SerializeField] private CircleCollider2D circleCollider;
-    [SerializeField] List<Food> foodList = new List<Food>();
+    [SerializeField] private Renderer spriteRenderer;
 
     private Food thisFood;
 
-    private int currentFoodCount;
-    public int CurrentFoodCount { get { return currentFoodCount; } }
+    private int _currentFoodCount;
+    public int CurrentFoodCount { get { return _currentFoodCount; } }
 
     private Vector2 swimDirection;
 
     private void Awake()
     {
         foodPool.Prewarm();
-        currentFoodCount = foodCount;
+        _currentFoodCount = foodCount;
     }
 
     private void Start()
@@ -32,39 +32,41 @@ public class FoodZone : MonoBehaviour
             SpawnFood();
             thisFood.FoodZone = this;
         }
+    }
 
-
+    private void Update()
+    {
+        if (_currentFoodCount == 0)
+        {
+            if (!spriteRenderer.isVisible)
+            {
+                StartRespawn();
+            }
+        }
     }
 
     private void SpawnFood()
     {
         var food = foodPool.Get();
         thisFood = food.GetComponent<Food>();
-        //foodList.Add(thisFood);
         thisFood.transform.position = RandomPointInBounds(circleCollider.bounds);
         thisFood.SwimDirection = swimDirection;
-        
     }
 
     public void DecrementCurrentFood()
     {
-        currentFoodCount--;
-        if(currentFoodCount == 0)
-        {
-            swimDirection = SetRandomSwimDirection();
-            Invoke("StartRespawn", 3f);
-        }
+        _currentFoodCount--;
     }
-    
+
     private void StartRespawn()
     {
+        _currentFoodCount = foodCount;
+        swimDirection = SetRandomSwimDirection();
         for (int i = 0; i < foodCount; i++)
         {
             SpawnFood();
         }
-        currentFoodCount = foodCount;
     }
-
 
     private Vector2 SetRandomSwimDirection()
     {

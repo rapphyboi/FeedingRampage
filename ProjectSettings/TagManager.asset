@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mouth
   - Food
+  - Player Detector
   layers:
   - Default
   - TransparentFX

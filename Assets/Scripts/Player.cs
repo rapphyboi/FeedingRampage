@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Tilemaps;
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float rotateSpeed = 1f;
     [SerializeField] private Animator animator;
     [SerializeField] private BoxCollider2D childCollider;
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
     private bool facingRight = true;
     private Vector2 inputVector;
@@ -22,6 +24,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        virtualCamera.LookAt = this.transform;
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.UseSkill.performed += UseSkill_performed;

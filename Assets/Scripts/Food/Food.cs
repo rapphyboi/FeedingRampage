@@ -13,8 +13,8 @@ public class Food : MonoBehaviour, IGameObjectPooled
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
 
-    private FoodZone foodZone;
-    public FoodZone FoodZone { set { foodZone = value; } }
+    private FoodZone _foodZone;
+    public FoodZone FoodZone { set { _foodZone = value; } }
 
     private float currentMoveSpeed;
 
@@ -95,8 +95,8 @@ public class Food : MonoBehaviour, IGameObjectPooled
         if (collision.gameObject.tag == "Mouth")
         {
             collision.gameObject.GetComponent<Mouth>().CreatePanic();
-            foodZone.DecrementCurrentFood();
-            Debug.Log(foodZone.CurrentFoodCount);
+            _foodZone.DecrementCurrentFood();
+            Debug.Log(_foodZone.CurrentFoodCount);
             Pool?.ReturnToPool(this.gameObject);
         }
     }

@@ -48,6 +48,7 @@ MonoBehaviour:
   foodPool: {fileID: 11400000, guid: 40700fe9cc086184da396c7fa1f570e2, type: 2}
   foodCount: 5
   circleCollider: {fileID: 6030254151865907525}
+  spriteRenderer: {fileID: 0}
 --- !u!58 &6030254151865907525
 CircleCollider2D:
   m_ObjectHideFlags: 0
