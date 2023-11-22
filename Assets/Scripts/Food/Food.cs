@@ -13,13 +13,17 @@ public class Food : MonoBehaviour, IGameObjectPooled
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
 
+    [SerializeField] private float _foodSize;
+
+    public float FoodSize { get { return _foodSize; } }
+
     private FoodZone _foodZone;
     public FoodZone FoodZone { set { _foodZone = value; } }
 
     private float currentMoveSpeed;
 
-    private Vector2 swimDirection;
-    public Vector2 SwimDirection { set { swimDirection = value; } }
+    private Vector2 _swimDirection;
+    public Vector2 SwimDirection { set { _swimDirection = value; } }
 
     private bool facingRight = true;
 
@@ -37,21 +41,21 @@ public class Food : MonoBehaviour, IGameObjectPooled
 
     private void StartSwim()
     {
-        animator.SetFloat("Speed", swimDirection.sqrMagnitude);
-        if (swimDirection.x < 0 && facingRight)
+        animator.SetFloat("Speed", _swimDirection.sqrMagnitude);
+        if (_swimDirection.x < 0 && facingRight)
         {
             Flip();
         }
-        if (swimDirection.x > 0 && !facingRight)
+        if (_swimDirection.x > 0 && !facingRight)
         {
             Flip();
         }
-        rb.velocity = swimDirection * currentMoveSpeed;
+        rb.velocity = _swimDirection * currentMoveSpeed;
     }
 
     private void SetRandomSwimDirection()
     {
-        swimDirection = new Vector2(Random.Range(0, 2) * 2 - 1, 1);
+        _swimDirection = new Vector2(Random.Range(0, 2) * 2 - 1, 1);
     }
 
     public void StartSwimFaster()
@@ -70,20 +74,6 @@ public class Food : MonoBehaviour, IGameObjectPooled
         StartSwim();
     }
 
-    private void Update()
-    {
-        /*animator.SetFloat("Speed", swimDirection.sqrMagnitude);
-        if (swimDirection.x < 0 && facingRight)
-        {
-            Flip();
-        }
-        if (swimDirection.x > 0 && !facingRight)
-        {
-            Flip();
-        }
-        rb.velocity = swimDirection * moveSpeed;*/
-
-    }
     private void Flip()
     {
         facingRight = !facingRight;
@@ -92,8 +82,9 @@ public class Food : MonoBehaviour, IGameObjectPooled
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Mouth")
+        if (collision.GetComponent<Mouth>())
         {
+            Debug.Log("LOL");
             collision.gameObject.GetComponent<Mouth>().CreatePanic();
             _foodZone.DecrementCurrentFood();
             Debug.Log(_foodZone.CurrentFoodCount);

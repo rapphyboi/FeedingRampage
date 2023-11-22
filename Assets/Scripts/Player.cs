@@ -8,11 +8,8 @@ using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float scaleIndex = 1f;
-
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private float rotateSpeed = 1f;
     [SerializeField] private Animator animator;
     [SerializeField] private BoxCollider2D childCollider;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
@@ -86,17 +83,18 @@ public class Player : MonoBehaviour
         transform.Rotate(Vector3.up * 180);
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Food")
+        if (collision.gameObject.tag == "Player")
         {
             Vector3 foodSize = collision.transform.localScale;
-            transform.localScale += foodSize * scaleIndex;
+            transform.localScale += foodSize;
             GetComponentInChildren<SoundEmitter>();
         }
     }
 
-    
+
 
     /*public void UseSkill(InputAction.CallbackContext context)
     {
